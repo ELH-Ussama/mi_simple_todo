@@ -1,0 +1,32 @@
+import React from "react";
+import "./Todo.css";
+import {
+  ListItemText,
+  ListItem,
+  Checkbox,
+  IconButton
+} from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+
+const Todo = props => {
+  return (
+    <div className="Todo">
+      <ListItem>
+        <Checkbox
+          checked={props.completed}
+          onClick={() => {
+            props.toggleTodo(props.id);
+          }}
+          value="checkedB"
+          color="primary"
+        />
+        <ListItemText primary={props.text} />
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </ListItem>
+    </div>
+  );
+};
+
+export default Todo;
