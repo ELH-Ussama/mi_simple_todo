@@ -2,7 +2,8 @@ import {
   ADD_TODO,
   VisibilityFilters,
   SET_VISIBILITY_FILTER,
-  TOGGLE_TODO
+  TOGGLE_TODO,
+  DELETE_TODO
 } from "../actions/todo_actions";
 
 const initialState = {
@@ -38,6 +39,11 @@ function todoReducer(state = initialState, action) {
         visibilityFilter: action.visibilityFilter,
         todos: state.todos
       };
+    case DELETE_TODO:
+      return {
+        visibilityFilter: state.visibilityFilter,
+        todos: state.todos.filter((todo, index) => index!==action.id)
+      }
     default:
       return state;
   }

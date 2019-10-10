@@ -4,3 +4,13 @@
     margin-top: 8px;
     margin-bottom: 30px;
 }
+
+.textField {
+    width: 320px;
+    margin-left: 8px !important;
+}
+
+.AddTodo {
+    margin-right: 8px;
+    margin-left: 8px;
+}

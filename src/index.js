@@ -7,10 +7,9 @@ import { Provider } from "react-redux";
 
 const store = createStore(todoReducer);
 
-const OUss = (
+ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
+  document.getElementById("root")
 );
-
-ReactDOM.render(OUss, document.getElementById("root"));

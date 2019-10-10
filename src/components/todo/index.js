@@ -21,7 +21,9 @@ const Todo = props => {
           color="primary"
         />
         <ListItemText primary={props.text} />
-        <IconButton>
+        <IconButton onClick={() => {
+          props.deleteTodo(props.id)
+        }}>
           <DeleteIcon />
         </IconButton>
       </ListItem>

@@ -2,7 +2,8 @@ import React from "react";
 import Todo from "../todo";
 import {
   VisibilityFilters,
-  toggleTodoAction
+  toggleTodoAction,
+  deleteTodoAction
 } from "../../actions/todo_actions";
 import { connect } from "react-redux";
 import "./index.css";
@@ -20,6 +21,9 @@ class VisibleTodos extends React.Component {
   handleToggle = i => {
     this.props.dispatch(toggleTodoAction(i));
   };
+  handleDelete = i => {
+    this.props.dispatch(deleteTodoAction(i));
+  }
   render() {
     const { todos, visibilityFilter } = this.props;
     return (
@@ -33,6 +37,7 @@ class VisibleTodos extends React.Component {
                 id={index}
                 text={todo.text}
                 toggleTodo={this.handleToggle}
+                deleteTodo={this.handleDelete}
                 completed={todo.completed}
               ></Todo>
             );
