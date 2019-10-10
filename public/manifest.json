@@ -1,0 +1,16 @@
+{
+  "short_name": "MST",
+  "name": "Mi Simple Todo",
+  "icons": [
+    {
+      "src": "./ticon.png",
+      "type": "image/png",
+      "sizes": "1003x1024"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#FFFFFF"
+}
