@@ -6,7 +6,7 @@ import {
   deleteTodoAction
 } from "../../actions/todo_actions";
 import { connect } from "react-redux";
-import "./index.css";
+import "./visibletodos.css";
 
 const showFilter = (todo, visibilityFilter) => {
   if (visibilityFilter === VisibilityFilters.SHOW_ALL) return true;

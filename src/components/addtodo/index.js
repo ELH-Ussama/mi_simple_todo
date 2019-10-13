@@ -3,7 +3,7 @@ import { TextField, Fab } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import { addTodoAction } from "../../actions/todo_actions";
 import {connect} from 'react-redux';
-import './index.css';
+import './addtodo.css';
 
 class AddTodo extends React.Component {
   state = {

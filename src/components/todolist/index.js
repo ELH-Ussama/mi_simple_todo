@@ -1,5 +1,5 @@
 import React from "react";
-import "./TodoList.css";
+import "./todolist.css";
 import { TodoListWording } from "../constants";
 import Header from "../../common/components/header";
 import AddTodo from "../addtodo";

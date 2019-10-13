@@ -6,6 +6,7 @@ import {
 } from "../../actions/todo_actions";
 import { ButtonGroup, Button } from "@material-ui/core";
 import { TodoListWording } from "../constants";
+import "./filter.css";
 
 class Filter extends React.Component {
   handleClick = filter => {
