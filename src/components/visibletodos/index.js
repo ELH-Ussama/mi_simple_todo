@@ -5,7 +5,7 @@ import {
   toggleTodoAction,
   deleteTodoAction
 } from "../../actions/todo_actions";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./visibletodos.css";
 
 const showFilter = (todo, visibilityFilter) => {
@@ -17,36 +17,34 @@ const showFilter = (todo, visibilityFilter) => {
   return false;
 };
 
-class VisibleTodos extends React.Component {
-  handleToggle = i => {
-    this.props.dispatch(toggleTodoAction(i));
+const VisibleTodos = () => {
+  const dispatch = useDispatch();
+  const handleToggle = i => {
+    dispatch(toggleTodoAction(i));
   };
-  handleDelete = i => {
-    this.props.dispatch(deleteTodoAction(i));
-  }
-  render() {
-    const { todos, visibilityFilter } = this.props;
-    return (
-      <div className="VisibleTodosContainer">
-        {todos
-          .filter(todo => showFilter(todo, visibilityFilter))
-          .map((todo, index) => {
-            return (
-              <Todo
-                key={index}
-                id={index}
-                text={todo.text}
-                toggleTodo={this.handleToggle}
-                deleteTodo={this.handleDelete}
-                completed={todo.completed}
-              ></Todo>
-            );
-          })}
-      </div>
-    );
-  }
-}
+  const handleDelete = i => {
+    dispatch(deleteTodoAction(i));
+  };
 
-const mapStateToProps = state => state;
+  const { todos, visibilityFilter } = useSelector(state => state);
+  return (
+    <div className="VisibleTodosContainer">
+      {todos
+        .filter(todo => showFilter(todo, visibilityFilter))
+        .map((todo, index) => {
+          return (
+            <Todo
+              key={index}
+              id={index}
+              text={todo.text}
+              toggleTodo={handleToggle}
+              deleteTodo={handleDelete}
+              completed={todo.completed}
+            />
+          );
+        })}
+    </div>
+  );
+};
 
-export default connect(mapStateToProps)(VisibleTodos);
+export default VisibleTodos;
