@@ -11,4 +11,3 @@ jobs:
       - run:
           name: Run Tests
           command: 'yarn ci:test'
-
