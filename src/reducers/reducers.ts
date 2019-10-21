@@ -11,7 +11,7 @@ const initialState = {
   todos: [],
 };
 
-function todoReducer(state = initialState, action: any) {
+function todoReducer(state: any = initialState, action: any) {
   switch (action.type) {
     case ADD_TODO:
       const newTodo = {
@@ -41,7 +41,7 @@ function todoReducer(state = initialState, action: any) {
     case DELETE_TODO:
       return {
         visibilityFilter: state.visibilityFilter,
-        todos: state.todos.filter((todo, index) => index!==action.id),
+        todos: state.todos.filter((todo: any, index: number) => index!==action.id),
       };
     default:
       return state;
