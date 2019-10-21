@@ -3,47 +3,46 @@ import {
   VisibilityFilters,
   SET_VISIBILITY_FILTER,
   TOGGLE_TODO,
-  DELETE_TODO
+  DELETE_TODO,
 } from "../actions/todo_actions";
 
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
-  todos: []
+  todos: [],
 };
 
-function todoReducer(state = initialState, action) {
+function todoReducer(state = initialState, action: any) {
   switch (action.type) {
     case ADD_TODO:
       const newTodo = {
         text: action.text,
-        completed: false
+        completed: false,
       };
       const newTodos = [...state.todos, newTodo];
-      const newState = {
+      return {
         visibilityFilter: state.visibilityFilter,
-        todos: newTodos
+        todos: newTodos,
       };
-      return newState;
     case TOGGLE_TODO:
-      const NewTodos = state.todos.map((todo, index) => {
+      const NewTodos = state.todos.map((todo: any, index: number) => {
         return action.id === index
           ? { ...todo, completed: !todo.completed }
           : todo;
       });
       return {
         ...state,
-        todos: NewTodos
+        todos: NewTodos,
       };
     case SET_VISIBILITY_FILTER:
       return {
         visibilityFilter: action.visibilityFilter,
-        todos: state.todos
+        todos: state.todos,
       };
     case DELETE_TODO:
       return {
         visibilityFilter: state.visibilityFilter,
-        todos: state.todos.filter((todo, index) => index!==action.id)
-      }
+        todos: state.todos.filter((todo, index) => index!==action.id),
+      };
     default:
       return state;
   }

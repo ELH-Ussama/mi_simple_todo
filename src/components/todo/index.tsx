@@ -8,7 +8,8 @@ import {
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-const Todo = props => {
+// TODO add prop typing
+const Todo = (props: any) => {
   return (
     <div className="Todo">
       <ListItem>

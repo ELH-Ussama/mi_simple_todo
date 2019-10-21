@@ -27,7 +27,7 @@ describe("todo tests", () => {
         toggleTodo={handleToggle}
         deleteTodo={handleDelete}
         completed={true}
-      />
+      />,
     );
     expect(myTodo).toMatchSnapshot();
     const todoCheck = myTodo.find(Checkbox);

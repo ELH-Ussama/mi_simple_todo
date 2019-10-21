@@ -7,7 +7,7 @@ import "./addtodo.css";
 
 class AddTodo extends React.Component {
   state = {
-    text: ""
+    text: "",
   };
 
   handleChange = event => {
