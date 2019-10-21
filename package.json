@@ -21,6 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "tslint -c tslint.json --project tsconfig.json",
+    "ci:test": "yarn lint && tsc --noEmit && CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

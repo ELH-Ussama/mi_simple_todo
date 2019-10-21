@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import "./Header.css";
 
-const Header = props => (
+const Header = (props: any) => (
   <div className="TodoHeader">
     <Typography variant="h3" gutterBottom>
       {props.children}

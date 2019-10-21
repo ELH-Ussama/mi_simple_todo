@@ -10,8 +10,8 @@ jobs:
           command: 'sudo npm install -g npm@6.11.3'
       - run:
           name: Install dependencies
-          command: 'npm install'
+          command: 'yarn install'
       - run:
           name: Run Tests
-          command: 'npm test'
+          command: 'yarn ci:test'
 

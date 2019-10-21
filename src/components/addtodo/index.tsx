@@ -10,28 +10,31 @@ class AddTodo extends React.Component {
     text: "",
   };
 
-  handleChange = event => {
+  handleChange = (event: any) => {
     this.setState({ text: event.target.value });
   };
 
   handleAdd = () => {
     if (this.state.text) {
+      // @ts-ignore
       this.props.dispatch(addTodoAction(this.state.text));
       this.setState({ text: "" });
     }
+    // @ts-ignore
     document.getElementById("AddTodoTextField").focus();
   };
 
-  handleTextFieldKeyDown = event => {
+  handleTextFieldKeyDown = (event: any) => {
     if (event.keyCode === 13) {
       this.handleAdd();
     }
   };
 
   componentDidMount(){
+    // @ts-ignore
     document.getElementById("AddTodoTextField").focus();
   }
-  
+
   render() {
     return (
       <div className="AddTodoContainer">

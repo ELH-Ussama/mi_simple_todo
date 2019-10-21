@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import {
   setVisibilityFilterAction,
-  VisibilityFilters
+  VisibilityFilters,
 } from "../../actions/todo_actions";
 import { ButtonGroup, Button } from "@material-ui/core";
 import { TodoListWording } from "../constants";
@@ -10,7 +10,7 @@ import "./filter.css";
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const handleClick = filter => {
+  const handleClick = (filter: any) => {
     dispatch(setVisibilityFilterAction(filter));
   };
   return (
