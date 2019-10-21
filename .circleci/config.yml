@@ -6,9 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install npm
-          command: 'sudo npm install -g npm@6.11.3'
-      - run:
           name: Install dependencies
           command: 'yarn install'
       - run:
