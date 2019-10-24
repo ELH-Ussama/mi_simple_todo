@@ -4,11 +4,11 @@
 ## Ussage
 
 ### To start
- - `npm install`
- - `npm start`
+ - `yarn install`
+ - `yarn start`
 
 ### To test
-`npm test`
+`yarn test`
 
 ### To build
-`npm run build`
+`yarn build`
