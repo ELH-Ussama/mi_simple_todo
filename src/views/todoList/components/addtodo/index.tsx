@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, Fab } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import { addTodoAction } from "../../actions/todo_actions";
+import { addTodoAction } from "../../todo_actions";
 import { connect } from "react-redux";
 import "./addtodo.css";
 

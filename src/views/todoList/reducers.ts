@@ -4,8 +4,9 @@ import {
   SET_VISIBILITY_FILTER,
   TOGGLE_TODO,
   DELETE_TODO,
-} from "../actions/todo_actions";
-import { UPDATE_TODOS_STATE } from '../actions/fetchDataActions';
+} from "./todo_actions";
+// TODO separate fetch data actions for each view
+import { UPDATE_TODOS_STATE } from '../../appActions/fetchDataActions';
 
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,

@@ -1,5 +1,5 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import { FETCH_ALL_DATA, updateTodosState } from '../actions/fetchDataActions';
+import { FETCH_ALL_DATA, updateTodosState } from '../appActions/fetchDataActions';
 import axios from 'axios';
 
 

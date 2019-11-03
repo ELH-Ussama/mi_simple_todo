@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   setVisibilityFilterAction,
   VisibilityFilters,
-} from "../../actions/todo_actions";
+} from "../../todo_actions";
 import { ButtonGroup, Button } from "@material-ui/core";
 import { TodoListWording } from "../constants";
 import "./filter.css";

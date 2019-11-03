@@ -4,7 +4,7 @@ import {
   VisibilityFilters,
   toggleTodoAction,
   deleteTodoAction,
-} from '../../actions/todo_actions';
+} from '../../todo_actions';
 import { useDispatch, useSelector } from 'react-redux';
 import './visibletodos.css';
 
