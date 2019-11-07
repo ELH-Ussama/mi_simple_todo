@@ -1,0 +1,32 @@
+.Root {
+    text-align: left;
+    width: 100%;
+}
+
+
+.HomeBtn {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    background-color: #7fffd4;
+}
+
+.TodoBtn {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.AbtBtn {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.SignInBtn {
+    position: absolute !important;
+    right: 110px;
+}
+
+.SignUpBtn {
+    position: absolute !important;
+    right: 10px;
+}
+

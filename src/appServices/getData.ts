@@ -13,6 +13,10 @@ function* getData() {
   yield put(updateTodosState(data));
 }
 
-export function* getDataSaga() {
+function* getDataSaga() {
   yield takeLatest(FETCH_ALL_DATA, getData);
 }
+
+export const getDataSagas = [
+  getDataSaga,
+];

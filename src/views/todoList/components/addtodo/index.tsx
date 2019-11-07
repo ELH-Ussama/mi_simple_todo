@@ -1,11 +1,16 @@
 import React from "react";
 import { TextField, Fab } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import { addTodoAction } from "../../todo_actions";
+import { addTodoAction, AddTodoActionType } from '../../todo_actions';
 import { connect } from "react-redux";
 import "./addtodo.css";
+import { Dispatch } from 'redux';
 
-class AddTodo extends React.Component {
+interface AddTodoProps {
+  dispatch: Dispatch<AddTodoActionType>
+}
+
+class AddTodo extends React.Component<AddTodoProps> {
   state = {
     text: "",
   };
@@ -16,7 +21,6 @@ class AddTodo extends React.Component {
 
   handleAdd = () => {
     if (this.state.text) {
-      // @ts-ignore
       this.props.dispatch(addTodoAction(this.state.text));
       this.setState({ text: "" });
     }

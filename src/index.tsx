@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "react-redux";
 import createSagaMiddleware from 'redux-saga'
-import { getDataSaga } from './appServices/getData';
+import { appSagas } from './appServices/appSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,7 +15,7 @@ const store = createStore(
   applyMiddleware(sagaMiddleware),
 );
 
-sagaMiddleware.run(getDataSaga);
+appSagas.forEach(saga => sagaMiddleware.run(saga));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -9,7 +9,12 @@ export enum VisibilityFilters {
   SHOW_COMPLETED = 'SHOW_COMPLETED',
 }
 
-export function addTodoAction(text: string) {
+export interface AddTodoActionType {
+  type: string,
+  text: string,
+}
+
+export function addTodoAction(text: string): AddTodoActionType {
   return {
     text,
     type: ADD_TODO,
