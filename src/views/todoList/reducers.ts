@@ -5,8 +5,6 @@ import {
   TOGGLE_TODO,
   DELETE_TODO,
 } from "./todo_actions";
-// TODO separate fetch data actions for each view
-import { UPDATE_TODOS_STATE } from '../../appActions/fetchDataActions';
 
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
@@ -44,11 +42,6 @@ function todoReducer(state: any = initialState, action: any) {
       return {
         visibilityFilter: state.visibilityFilter,
         todos: state.todos.filter((todo: any, index: number) => index!==action.id),
-      };
-    case UPDATE_TODOS_STATE:
-      return {
-        visibilityFilter: state.visibilityFilter,
-        todos: action.todos,
       };
     default:
       return state;
