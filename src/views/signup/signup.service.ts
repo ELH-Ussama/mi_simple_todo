@@ -31,12 +31,12 @@ function validateInputs(action: ValidateAndSignUpActionType) {
 
 function* validateAndSignUp(action: ValidateAndSignUpActionType) {
   validateInputs(action);
-  console.log('here');
   const result = yield axios.post('http://localhost:8000/createUser', { action });
   const response = result.data;
   if(!response) alert('did not receive any response from server');
   if(!response.success) alert(`Received the flowing error ${response.error}`);
   // TODO dispatch some action because success is true
+  // TODO dispatch redirection to signIn
 }
 
 export function* signUpSaga() {

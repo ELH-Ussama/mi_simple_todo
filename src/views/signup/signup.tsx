@@ -7,6 +7,13 @@ import './signup.css';
 import { validateAndSignUpAction, ValidateAndSignUpActionType } from './signup.service';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import FormControl from '@material-ui/core/FormControl';
 
 interface SignUpPageProps {
   dispatch: Dispatch<ValidateAndSignUpActionType>
@@ -20,10 +27,20 @@ class SignUpPage extends Component<SignUpPageProps> {
     email: '',
     password: '',
     rePassword: '',
+    showPassword: false,
+    showRePassword: false,
   };
 
   handleChange = (stateKey: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ [stateKey]: event.target.value });
+  };
+
+  handleClickShowPassword = () => {
+    this.setState({showPassword: !this.state.showPassword})
+  };
+
+  handleClickShowRePassword = () => {
+    this.setState({showRePassword: !this.state.showRePassword})
   };
 
   handleValidate = () => {
@@ -33,11 +50,11 @@ class SignUpPage extends Component<SignUpPageProps> {
       this.state.userName,
       this.state.email,
       this.state.password,
-    ))
+    ));
   };
 
   render() {
-    const passwordsMatchError: boolean = !!this.state.rePassword && this.state.rePassword !== this.state.password;
+    const { firstName, lastName, userName, email, password, rePassword, showPassword, showRePassword } = this.state;
     return <div className="root">
       <Header>{'Sign Up Form'}</Header>
       <Grid container spacing={3}>
@@ -48,7 +65,7 @@ class SignUpPage extends Component<SignUpPageProps> {
             className="textField"
             onChange={this.handleChange('firstName')}
             variant="outlined"
-            value={this.state.firstName}
+            value={firstName}
           />
         </Grid>
         <Grid item xs={12}>
@@ -58,7 +75,7 @@ class SignUpPage extends Component<SignUpPageProps> {
             className="textField"
             onChange={this.handleChange('lastName')}
             variant="outlined"
-            value={this.state.lastName}
+            value={lastName}
           />
         </Grid>
         <Grid item xs={12}>
@@ -68,7 +85,7 @@ class SignUpPage extends Component<SignUpPageProps> {
             className="textField"
             onChange={this.handleChange('userName')}
             variant="outlined"
-            value={this.state.userName}
+            value={userName}
           />
         </Grid>
         <Grid item xs={12}>
@@ -78,30 +95,52 @@ class SignUpPage extends Component<SignUpPageProps> {
             className="textField"
             onChange={this.handleChange('email')}
             variant="outlined"
-            value={this.state.email}
+            value={email}
           />
         </Grid>
         <Grid item xs={12}>
-          <TextField
-            id="Pass"
-            label="Enter password"
-            className="textField"
-            onChange={this.handleChange('password')}
-            variant="outlined"
-            value={'*'.repeat(this.state.password.length)}
-          />
+          <FormControl className="textField" variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={this.handleChange('password')}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={this.handleClickShowPassword}
+                  >
+                    {showPassword ? <Visibility/> : <VisibilityOff/>}
+                  </IconButton>
+                </InputAdornment>
+              }
+              labelWidth={70}
+            />
+          </FormControl>
         </Grid>
         <Grid item xs={12}>
-          <TextField
-            error={passwordsMatchError}
-            id="RePass"
-            label="Repeat password"
-            helperText={passwordsMatchError && "Passwords did not match"}
-            className="textField"
-            onChange={this.handleChange('rePassword')}
-            variant="outlined"
-            value={'*'.repeat(this.state.rePassword.length)}
-          />
+          <FormControl className="textField" variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-rePassword">Repeat password</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-rePassword"
+              type={showRePassword ? 'text' : 'password'}
+              value={rePassword}
+              onChange={this.handleChange('rePassword')}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={this.handleClickShowRePassword}
+                  >
+                    {showRePassword ? <Visibility/> : <VisibilityOff/>}
+                  </IconButton>
+                </InputAdornment>
+              }
+              labelWidth={125}
+            />
+          </FormControl>
         </Grid>
         <Grid item xs={12}>
           <Button variant="contained"

@@ -11,6 +11,7 @@ import {
 import NavBar from './common/components/navBar';
 import Home from './views/home/home';
 import SignUpPage from './views/signup/signup';
+import SignInPage from './views/signin/signin';
 
 interface AppProps {
 }
@@ -26,7 +27,7 @@ class App extends React.Component<AppProps> {
               <Home/>
             </Route>
             <Route exact path={'/signIn'}>
-              <h1>SignIn</h1>
+              <SignInPage />
             </Route>
             <Route exact path={'/signUp'}>
               <SignUpPage/>
