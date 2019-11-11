@@ -1,7 +1,6 @@
 import React from 'react';
 import TodoList from './views/todoList/todolist';
 import './App.css';
-import { FetchAllDataAction, fetchAllDataAction } from './appActions/fetchDataActions';
 import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
@@ -12,18 +11,11 @@ import {
 import NavBar from './common/components/navBar';
 import Home from './views/home/home';
 import SignUpPage from './views/signup/signup';
-import { Dispatch } from 'redux';
 
 interface AppProps {
-  dispatch: Dispatch<FetchAllDataAction>
 }
 
 class App extends React.Component<AppProps> {
-
-  componentDidMount(): void {
-    // this.props.dispatch(fetchAllDataAction());
-  }
-
   render() {
     return (
       <div className="App">
