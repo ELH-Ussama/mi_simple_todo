@@ -1,17 +1,17 @@
 import { createStore, applyMiddleware } from "redux";
-// TODO separate reducers for each view
-import todoReducer from "./views/todoList/reducers";
+import appReducers from "./appReducers";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "react-redux";
 import createSagaMiddleware from 'redux-saga'
 import { appSagas } from './appServices/appSaga';
+import todoReducer from './views/todoList/reducers';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  todoReducer,
+  appReducers,
   applyMiddleware(sagaMiddleware),
 );
 

@@ -21,7 +21,7 @@ interface AppProps {
 class App extends React.Component<AppProps> {
 
   componentDidMount(): void {
-    this.props.dispatch(fetchAllDataAction());
+    // this.props.dispatch(fetchAllDataAction());
   }
 
   render() {

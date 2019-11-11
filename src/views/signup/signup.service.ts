@@ -25,7 +25,6 @@ export function validateAndSignUpAction(firstName: string, lastName: string, use
 }
 
 function* validateAndSignUp(action: ValidateAndSignUpActionType){
-  // const {firstName, lastName, userName, email, password} = action;
   yield axios.post('http://localhost:8000/createUser', {action})
 }
 

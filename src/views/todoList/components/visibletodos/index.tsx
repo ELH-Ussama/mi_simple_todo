@@ -25,7 +25,9 @@ const VisibleTodos = () => {
     dispatch(deleteTodoAction(i));
   };
   // TODO add state typing
-  const { todos, visibilityFilter } = useSelector((state: any) => state);
+  const state = useSelector((state: any) => state);
+  console.log('state :: ', );
+  const { todos, visibilityFilter } = state;
   return (
     <div className="VisibleTodosContainer">
       {todos
